@@ -1,5 +1,10 @@
+$orange: #faa573;
+
 body {
   .title {
     color: green;
+  }
+  .main-color{
+    color: $orange;
   }
 }
