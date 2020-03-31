@@ -1,4 +1,5 @@
 import React from 'react';
+import './Footer.scss';
 import { withRouter } from 'react-router';
 import { TabBar } from 'antd-mobile';
 class Footer extends React.Component {
@@ -24,24 +25,8 @@ class Footer extends React.Component {
             <TabBar.Item
               title={item.title}
               key={item.key}
-              icon={
-                <div
-                  style={{
-                    width: '22px',
-                    height: '22px',
-                    background: 'url(https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg) center center /  21px 21px no-repeat'
-                  }}
-                />
-              }
-              selectedIcon={
-                <div
-                  style={{
-                    width: '22px',
-                    height: '22px',
-                    background: 'url(https://zos.alipayobjects.com/rmsportal/iSrlOTqrKddqbOmlvUfq.svg) center center /  21px 21px no-repeat'
-                  }}
-                />
-              }
+              icon={<div className={'tab-icon iconfont ' + item.icon} />}
+              selectedIcon={<div className={'tab-icon iconfont ' + item.icon} />}
               selected={this.state.selectedTab === item.path}
               onPress={this.selectTab.bind(this, item)}
               data-seed='logId'

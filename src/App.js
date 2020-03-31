@@ -1,10 +1,8 @@
 require('./style.scss');
 import React from 'react';
 import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import { createBrowserHistory } from 'history';
 import router from './router';
-import FooterHoc from './components/Footer';
-import Item from 'antd-mobile/lib/popover/Item';
+import FooterHoc from './components/Footer/Footer';
 
 class App extends React.Component {
   constructor(props) {
@@ -14,24 +12,26 @@ class App extends React.Component {
       {
         key: '1',
         path: '/',
-        title: '首页'
+        title: '首页',
+        icon: 'icon-home'
       },
       {
         key: '2',
         path: '/category',
-        title: '分类'
+        title: '分类',
+        icon: 'icon-integral'
       },
       {
         key: '3',
         path: '/user',
-        title: '我的'
+        title: '我的',
+        icon: 'icon-zhanghucaozuo'
       }
     ];
   }
   render() {
     return (
       <React.Fragment>
-        <span class='icon iconfont icon-history'></span>
         <Router>
           {/* pages */}
           <Switch>
