@@ -17,11 +17,9 @@
  * - https://babeljs.io/docs/en/babel-plugin-proposal-class-properties
  */
 
-const webpack = require('webpack');
 const webpackMerge = require('webpack-merge');
 const webpackBase = require('./merge/webpack.base');
 const webpackModule = require('./merge/webpack.module');
 const webpackPlugins = require('./merge/webpack.plugins');
-const webpackServer = require('./webpack.dev');
 
-module.exports = webpackMerge(webpackBase, webpackModule, webpackPlugins, webpackServer);
+module.exports = webpackMerge(webpackBase, webpackModule, webpackPlugins);
