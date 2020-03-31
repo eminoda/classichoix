@@ -47,6 +47,18 @@ module.exports = {
             }
           }
         ]
+      },
+      /** iconfont */
+      {
+        test: /\.(jpg|png)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: 'images/[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   }

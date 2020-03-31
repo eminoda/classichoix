@@ -1,11 +1,13 @@
 import React from 'react';
-
+import Banner from '../components/Banner/Banner';
 class Home extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
-    return <h2>首页</h2>;
+    return <React.Fragment>
+      <Banner></Banner>
+    </React.Fragment>;
   }
 }
 
