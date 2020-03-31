@@ -11,7 +11,8 @@ module.exports = {
   },
   // 编译输出路径
   output: {
-    path: path.resolve(__dirname, '..', 'dist'), // 需要提供一个完整路径 absolute path
+    publicPath: '',
+    path: path.resolve(__dirname, '../..', 'dist'), // 需要提供一个完整路径 absolute path
     filename: '[name].bundle.js' // 指定文件名
   },
   resolve: {

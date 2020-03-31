@@ -1,10 +1,12 @@
+@import './scss/iconfont.css';
+
 $orange: #faa573;
 
 body {
   .title {
     color: green;
   }
-  .main-color{
+  .main-color {
     color: $orange;
   }
 }

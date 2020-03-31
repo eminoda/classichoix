@@ -35,6 +35,18 @@ module.exports = {
           // Compiles Sass to CSS
           'sass-loader'
         ]
+      },
+      /** iconfont */
+      {
+        test: /\.(eot|woff|ttf|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'fonts/[name].[ext]'
+            }
+          }
+        ]
       }
     ]
   }

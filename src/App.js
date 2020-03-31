@@ -31,6 +31,7 @@ class App extends React.Component {
   render() {
     return (
       <React.Fragment>
+        <span class='icon iconfont icon-history'></span>
         <Router>
           {/* pages */}
           <Switch>
