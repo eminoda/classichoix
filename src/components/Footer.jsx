@@ -2,20 +2,18 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import { TabBar } from 'antd-mobile';
 class Footer extends React.Component {
-
   constructor(props) {
     super(props);
-    console.log(props.match);
     this.state = {
-      selectedTab: ''
+      selectedTab: this.props.location.pathname
     };
   }
 
   selectTab(item) {
     this.setState({
-      selectedTab: item.key
+      selectedTab: item.path
     });
-    this.props.history.push(item.path)
+    this.props.history.push(item.path);
   }
 
   render() {
@@ -44,7 +42,7 @@ class Footer extends React.Component {
                   }}
                 />
               }
-              selected={this.state.selectedTab === item.key}
+              selected={this.state.selectedTab === item.path}
               onPress={this.selectTab.bind(this, item)}
               data-seed='logId'
             ></TabBar.Item>

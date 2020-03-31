@@ -2,14 +2,14 @@ require('./style.scss');
 import React from 'react';
 import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
-import Home from './pages/Home';
-import Category from './pages/Category';
-import User from './pages/User';
+import router from './router';
 import FooterHoc from './components/Footer';
+import Item from 'antd-mobile/lib/popover/Item';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.router = router;
     this.tabbars = [
       {
         key: '1',
@@ -34,9 +34,9 @@ class App extends React.Component {
         <Router>
           {/* pages */}
           <Switch>
-            <Route path='/category' component={Category}></Route>
-            <Route path='/user' component={User}></Route>
-            <Route path='/' component={Home}></Route>
+            {this.router.map(item => (
+              <Route path={item.path} component={item.component} key={item.path} />
+            ))}
           </Switch>
           {/* tabbar */}
           <FooterHoc list={this.tabbars}></FooterHoc>
