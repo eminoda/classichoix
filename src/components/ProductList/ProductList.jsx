@@ -6,8 +6,13 @@ import ReactDOM from 'react-dom';
 import Product from '../Product/Product';
 import { ListView } from 'antd-mobile';
 import productList from '../../mock/productList';
+import Banner from '../../components/Banner/Banner';
 function List(props) {
-  return <div className='product-list'>{props.children}</div>;
+  return (
+    <React.Fragment>
+      <div className='product-list'>{props.children}</div>
+    </React.Fragment>
+  );
 }
 class ProductList extends React.Component {
   constructor(props) {
@@ -27,7 +32,7 @@ class ProductList extends React.Component {
     this.pagnation = {
       page: 1,
       pageSize: 10,
-      totalPage: 2
+      totalPage: 1
     };
     this.state = {
       dataSource,
@@ -53,7 +58,7 @@ class ProductList extends React.Component {
         this.list = [...this.list, ...data.list];
         if (this.pagnation.page <= data.totalPage) {
           this.genData(this.list, this.pagnation);
-          const tabbarHeight = 50;
+          const tabbarHeight = 50+180;
           this.setState({
             dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlobs, this.sectionIDs, this.rowIDs),
             isLoading: false,
@@ -99,22 +104,19 @@ class ProductList extends React.Component {
       return <Product key={rowID} item={rowData}></Product>;
     };
     return (
-      <React.Fragment>
-        {/* <Banner></Banner> */}
-        <ListView
-          ref={el => (this.listViewRef = el)}
-          dataSource={this.state.dataSource}
-          renderBodyComponent={() => <List />}
-          style={{
-            height: this.state.height,
-            overflow: 'auto'
-          }}
-          renderRow={row}
-          renderFooter={() => <div>{this.state.loading ? '加载中' : '暂无最新数据'}</div>}
-          onEndReachedThreshold={100}
-          onEndReached={this.onEndReached.bind(this)}
-        ></ListView>
-      </React.Fragment>
+      <ListView
+        ref={el => (this.listViewRef = el)}
+        dataSource={this.state.dataSource}
+        renderBodyComponent={() => <List />}
+        style={{
+          height: this.state.height,
+          overflow: 'auto'
+        }}
+        renderRow={row}
+        renderFooter={() => <div>{this.state.loading ? '加载中' : '暂无最新数据'}</div>}
+        onEndReachedThreshold={100}
+        onEndReached={this.onEndReached.bind(this)}
+      ></ListView>
     );
   }
 }

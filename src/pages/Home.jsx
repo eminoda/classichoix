@@ -10,8 +10,8 @@ class Home extends React.Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Banner></Banner> */}
-        <ProductList></ProductList>
+        <Banner></Banner>
+        <ProductList ></ProductList>
       </React.Fragment>
     );
   }
