@@ -27,7 +27,9 @@
 npm run dev
 ```
 
-# 注释规范
+# 其他
+
+## 注释规范
 
 > 最开始注意到注释规范是在 Angular 那边留意到的，我这里没有生成注释之类 tools，但不能像平时那般随性，力求“强迫症”些。
 
@@ -43,4 +45,7 @@ npm run dev
 
 # TODO LEARN
 
+一些受困扰的点，待研究：
+
 - [ ] tabbar 命令式路由的使用：RouterContext & withRouter
+- [ ] antd 中 ListView 的 datasource 怎么回事
