@@ -1,44 +1,14 @@
 import './Category.scss';
 import React from 'react';
 import Header from '../components/Header/Header';
+import categoryMock from '../mock/category';
 class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       categoryId: 1,
     };
-    this.categories = [
-      {
-        name: '品牌',
-        id: 1,
-        desc: [
-          {
-            pic: 'https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg',
-            name: '巴拉巴拉',
-          },
-          {
-            pic: 'https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg',
-            name: '巴拉巴拉',
-          },
-        ],
-      },
-      {
-        name: '季节',
-        id: 2,
-        desc: [
-          {
-            name: '巴拉巴拉1',
-          },
-          {
-            name: '巴拉巴拉2',
-          },
-        ],
-      },
-      {
-        name: '年龄',
-        id: 3,
-      },
-    ];
+    this.categories = categoryMock;
   }
 
   chooseCategory(id) {
