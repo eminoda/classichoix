@@ -1,0 +1,42 @@
+$black: #333;
+.category-menus {
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 50px;
+  .category {
+    width: 30%;
+    background-color: #f2f2f2;
+    .item {
+      text-align: center;
+      padding: 15px 30px;
+      &.selected {
+        background-color: #fff;
+        color: #faa573;
+      }
+    }
+  }
+
+  .category-desc {
+    width: 70%;
+    display: flex;
+    justify-content: start;
+    background-color: #ffffff;
+    .item {
+      margin: 10px 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 50px;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+      .text {
+        margin-left: 5px;
+      }
+    }
+  }
+}

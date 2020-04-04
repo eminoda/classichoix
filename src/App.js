@@ -13,20 +13,20 @@ class App extends React.Component {
         key: '1',
         path: '/',
         title: '首页',
-        icon: 'icon-home'
+        icon: 'icon-home',
       },
       {
         key: '2',
         path: '/category',
         title: '分类',
-        icon: 'icon-integral'
+        icon: 'icon-integral',
       },
       {
         key: '3',
         path: '/user',
         title: '我的',
-        icon: 'icon-zhanghucaozuo'
-      }
+        icon: 'icon-zhanghucaozuo',
+      },
     ];
   }
   render() {
@@ -35,7 +35,7 @@ class App extends React.Component {
         <Router>
           {/* pages */}
           <Switch>
-            {this.router.map(item => (
+            {this.router.map((item) => (
               <Route path={item.path} component={item.component} key={item.path} />
             ))}
           </Switch>
