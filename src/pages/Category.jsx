@@ -5,16 +5,34 @@ class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryId: 2,
+      categoryId: 1,
     };
     this.categories = [
       {
         name: '品牌',
         id: 1,
+        desc: [
+          {
+            pic: 'https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg',
+            name: '巴拉巴拉',
+          },
+          {
+            pic: 'https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg',
+            name: '巴拉巴拉',
+          },
+        ],
       },
       {
         name: '季节',
         id: 2,
+        desc: [
+          {
+            name: '巴拉巴拉1',
+          },
+          {
+            name: '巴拉巴拉2',
+          },
+        ],
       },
       {
         name: '年龄',
@@ -43,14 +61,21 @@ class Category extends React.Component {
             })}
           </div>
           <div className='category-desc'>
-            <div className='item'>
-              <img src='https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg'></img>
-              <div className='text'>巴拉巴拉</div>
-            </div>
-            <div className='item'>
-              <img src='https://img.alicdn.com/tfscom/TB1bmx1e8fM8KJjSZFhXXcRyFXa.jpg_q90.jpg'></img>
-              <div className='text'>巴拉巴拉</div>
-            </div>
+            {this.categories.map((item) => {
+              if (item.id === this.state.categoryId) {
+                const desc = item.desc;
+                if (desc && desc.length > 0) {
+                  return desc.map((item, index) => {
+                    return (
+                      <div key={index} className='item'>
+                        {item.pic && <img src={item.pic}></img>}
+                        <div className='text'>{item.name}</div>
+                      </div>
+                    );
+                  });
+                }
+              }
+            })}
           </div>
         </div>
       </React.Fragment>
