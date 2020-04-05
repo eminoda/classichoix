@@ -1,7 +1,7 @@
 import './Category.scss';
 import React from 'react';
-import Header from '../components/Header/Header';
-import categoryMock from '../mock/category';
+import Header from '../../../components/Header/Header';
+import categoryMock from '../../../mock/category';
 class Category extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +15,10 @@ class Category extends React.Component {
     this.setState({
       categoryId: id,
     });
+  }
+
+  goProductsPage() {
+    this.props.history.push('/products');
   }
   render() {
     return (
@@ -37,7 +41,7 @@ class Category extends React.Component {
                 if (desc && desc.length > 0) {
                   return desc.map((item, index) => {
                     return (
-                      <div key={index} className='item'>
+                      <div key={index} className='item' onClick={this.goProductsPage.bind(this)}>
                         {item.pic && <img src={item.pic}></img>}
                         <div className='text'>{item.name}</div>
                       </div>

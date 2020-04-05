@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import router from './router';
 import FooterHoc from './components/Footer/Footer';
-
+import RouteWithRoutes from './components/RouteWithRoutes';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -31,18 +31,13 @@ class App extends React.Component {
   }
   render() {
     return (
-      <React.Fragment>
-        <Router>
-          {/* pages */}
-          <Switch>
-            {this.router.map((item) => (
-              <Route path={item.path} component={item.component} key={item.path} />
-            ))}
-          </Switch>
-          {/* tabbar */}
-          <FooterHoc list={this.tabbars}></FooterHoc>
-        </Router>
-      </React.Fragment>
+      <Router>
+        <Switch>
+          {this.router.map((item, index) => {
+            return <RouteWithRoutes key={index} {...item}></RouteWithRoutes>;
+          })}
+        </Switch>
+      </Router>
     );
   }
 }
