@@ -58,7 +58,7 @@ class ProductList extends React.Component {
         this.list = [...this.list, ...data.list];
         if (this.pagnation.page <= data.totalPage) {
           this.genData(this.list, this.pagnation);
-          const tabbarHeight = 50+180;
+          const tabbarHeight = 50;
           this.setState({
             dataSource: this.state.dataSource.cloneWithRowsAndSections(this.dataBlobs, this.sectionIDs, this.rowIDs),
             isLoading: false,

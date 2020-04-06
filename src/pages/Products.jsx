@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../components/Header/Header';
-
+import ProductList from '../components/ProductList/ProductList';
 class Products extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,9 @@ class Products extends React.Component {
     return (
       <React.Fragment>
         <Header title='产品列表'></Header>
-        <div className='content-wrap'>产品列表</div>
+        <div className='content-wrap'>
+          <ProductList></ProductList>
+        </div>
       </React.Fragment>
     );
   }
