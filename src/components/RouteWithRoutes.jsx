@@ -2,7 +2,6 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 function RouteWithRoutes(route) {
-  console.log(route.path);
   // 路由器
   return (
     <Route

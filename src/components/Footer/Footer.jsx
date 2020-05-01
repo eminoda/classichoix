@@ -4,15 +4,33 @@ import { withRouter } from 'react-router';
 import { TabBar } from 'antd-mobile';
 class Footer extends React.Component {
   constructor(props) {
+    console.log(props)
     super(props);
+    this.tabbars = [
+      {
+        path: '/',
+        title: '首页',
+        icon: 'icon-home',
+      },
+      {
+        path: '/category',
+        title: '分类',
+        icon: 'icon-integral',
+      },
+      {
+        path: '/user',
+        title: '我的',
+        icon: 'icon-zhanghucaozuo',
+      },
+    ];
     this.state = {
-      selectedTab: this.props.location.pathname
+      selectedTab: this.props.location.pathname,
     };
   }
 
   selectTab(item) {
     this.setState({
-      selectedTab: item.path
+      selectedTab: item.path,
     });
     this.props.history.push(item.path);
   }
@@ -21,10 +39,10 @@ class Footer extends React.Component {
     return (
       <div style={{ position: 'fixed', width: '100%', bottom: 0 }}>
         <TabBar unselectedTintColor='#949494' tintColor='#faa573' barTintColor='white'>
-          {this.props.list.map(item => (
+          {this.tabbars.map((item, index) => (
             <TabBar.Item
               title={item.title}
-              key={item.key}
+              key={index}
               icon={<div className={'tab-icon iconfont ' + item.icon} />}
               selectedIcon={<div className={'tab-icon iconfont ' + item.icon} />}
               selected={this.state.selectedTab === item.path}

@@ -8,26 +8,6 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.router = router;
-    this.tabbars = [
-      {
-        key: '1',
-        path: '/',
-        title: '首页',
-        icon: 'icon-home',
-      },
-      {
-        key: '2',
-        path: '/category',
-        title: '分类',
-        icon: 'icon-integral',
-      },
-      {
-        key: '3',
-        path: '/user',
-        title: '我的',
-        icon: 'icon-zhanghucaozuo',
-      },
-    ];
   }
   render() {
     return (

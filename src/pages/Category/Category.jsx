@@ -1,7 +1,7 @@
 import './Category.scss';
 import React from 'react';
-import Header from '../../../components/Header/Header';
-import categoryMock from '../../../mock/category';
+import Header from '../../components/Header/Header';
+import categoryMock from '../../mock/category';
 class Category extends React.Component {
   constructor(props) {
     super(props);
