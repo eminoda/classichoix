@@ -1,0 +1,12 @@
+.menus-wrap {
+  width: 30%;
+  background-color: #f2f2f2;
+  .item {
+    text-align: center;
+    padding: 15px 0;
+    &.selected {
+      background-color: #fff;
+      color: #faa573;
+    }
+  }
+}

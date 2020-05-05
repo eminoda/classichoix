@@ -1,56 +1,53 @@
 import './Category.scss';
 import React from 'react';
 import Header from '../../components/Header/Header';
+import CategoryMenus from '../../components/Category/Menus/Menus';
+import CategoryExhibitions from '../../components/Category/Exhibitions/Exhibitions';
 import categoryMock from '../../mock/category';
 class Category extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      categoryId: 1,
+      category: {},
     };
     this.categories = categoryMock;
-  }
-
-  chooseCategory(id) {
-    this.setState({
-      categoryId: id,
+    this.menus = categoryMock.map((item) => {
+      return {
+        id: item.id,
+        name: item.name,
+      };
     });
   }
 
-  goProductsPage() {
-    this.props.history.push('/products');
+  onChooseMenus(id) {
+    this.setState({
+      categoryId: id,
+    });
+    this.setState({ category: this.getCategoryById(id) });
   }
+
+  onChooseCategory(item) {
+    console.log(item);
+  }
+
+  getCategoryById(id) {
+    for (let item of this.categories) {
+      if (item.id == id) {
+        return item;
+      }
+    }
+    return null;
+  }
+
   render() {
     return (
       <React.Fragment>
         <Header title='分类'></Header>
         <div className='category-menus content-wrap'>
-          <div className='category'>
-            {this.categories.map((item) => {
-              return (
-                <div onClick={(e) => this.chooseCategory(item.id)} key={item.id} className='item' className={`item ${this.state.categoryId === item.id ? 'selected' : ''}`}>
-                  {item.name}
-                </div>
-              );
-            })}
-          </div>
-          <div className='category-desc'>
-            {this.categories.map((item) => {
-              if (item.id === this.state.categoryId) {
-                const desc = item.desc;
-                if (desc && desc.length > 0) {
-                  return desc.map((item, index) => {
-                    return (
-                      <div key={index} className='item' onClick={this.goProductsPage.bind(this)}>
-                        {item.pic && <img src={item.pic}></img>}
-                        <div className='text'>{item.name}</div>
-                      </div>
-                    );
-                  });
-                }
-              }
-            })}
-          </div>
+          {/* 分类栏 */}
+          <CategoryMenus onChooseMenus={this.onChooseMenus.bind(this)} menus={this.menus} />
+          {/* 详细介绍 */}
+          <CategoryExhibitions onChooseCategory={this.onChooseCategory.bind(this)} category={this.state.category} />
         </div>
       </React.Fragment>
     );
